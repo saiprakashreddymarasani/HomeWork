@@ -12121,8 +12121,9 @@ Percentage of the first 100 images in dog_files with detected human face is 12.0
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
-<p><strong>Answer:</strong></p>
-<p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
+<p><strong>Answer:</strong>
+I dont think restricting a user to provide a clear view of the face will be a good approach, for an example consider the photos being posted in social networks most of them will not be with clear view of the face :). May be we can train our algorithm with wide variety of photos with different angles, backgrounds and lightening conditions then we may overcome the problem.
+We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
 
 </div>
 </div>
@@ -12446,7 +12447,7 @@ Percentage of the first 100 images in dog_files with detected dog face is 100.0
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong>  I have choosen to use the similar architecture as given above. In my architecture I have used 3 convlution layers which can detect patterns in the images to differentiate dog breeds and pooling layers to reduce dimensionality of an array. I have also used dropout layers to prevent overfitting and softmax to classify the output into 133 categories.</p>
 
 </div>
 </div>
@@ -13196,7 +13197,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Initially I have tried with Resnet which threw an exception when I try to predict the dog breed of input images which I pass after spending sometime in debugging the issue, I opened slack channel to see if anyone has faced this kind of issue and then I found few of them faced the similar issue and then they have moved to inception model which lead me to use inception model. Then I have followed the same steps as followed for VGG16 model. My model has given 77.5% accuracy which is greater than VGG16 model. I have also used softmax to classify the output into 133 categories.</p>
 
 </div>
 </div>
@@ -13577,7 +13578,13 @@ Epoch 00020: val_loss did not improve from 0.65902
 <h2 id="Step-7:-Test-Your-Algorithm">Step 7: Test Your Algorithm<a class="anchor-link" href="#Step-7:-Test-Your-Algorithm">&#182;</a></h2><p>In this section, you will take your new algorithm for a spin!  What kind of dog does the algorithm think that <strong>you</strong> look like?  If you have a dog, does it predict your dog's breed accurately?  If you have a cat, does it mistakenly think that your cat is a dog?</p>
 <h3 id="(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">(IMPLEMENTATION) Test Your Algorithm on Sample Images!<a class="anchor-link" href="#(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">&#182;</a></h3><p>Test your algorithm at least six images on your computer.  Feel free to use any images you like.  Use at least two human and two dog images.</p>
 <p><strong>Question 6:</strong> Is the output better than you expected :) ?  Or worse :( ?  Provide at least three possible points of improvement for your algorithm.</p>
-<p><strong>Answer:</strong> The output is far better than what I expected. Percentage of the first 100 images in dog_files with detected human face is 12% so may be if we can improve this percentage we can have a more accurate alogirthm. If we get any input of mixed breeds or an photo with half of one dog and other half of different breed then we may have to throw an error/exception.</p>
+<p><strong>Answer:</strong> The output is far better than what I expected.</p>
+<ol>
+<li>Percentage of the first 100 images in dog_files with detected human face is 12% so may be if we can improve this percentage we can have a more accurate alogirthm.</li>
+<li>If we get any input of mixed breeds or an photo with half of one dog and other half of different breed then we may have to throw an error/exception. </li>
+<li>In the training data there are few do breed classes which has less than 10 images which can lead to lower accuracy.</li>
+<li>May be we have to explore more to reduce the time being taken by algorith to run.</li>
+</ol>
 
 </div>
 </div>
