@@ -12462,7 +12462,7 @@ reward = 1.-.03*(abs(self.sim.pose[:3] - self.target_pos)).sum()</p>
 <li>What neural network architecture did you use (if any)? Specify layers, sizes, activation functions, etc.</li>
 </ul>
 <p><strong>Answer</strong>:
-I have followed Actor_Critique architecture as suggested in examples by adding mutliple layers and by adding regularisation.
+I have followed Actor_Critic architecture as suggested in examples by adding mutliple layers and by adding regularisation.
 My final choice of hyper parameters are:
 gamma ( discount factor) = 0.99
 theta (reversion to mean of noise) = 0.15
